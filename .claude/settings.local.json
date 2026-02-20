@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Read(//d/Onedrive/OneDrive - Microsoft - Nov 24/OneDrive - Microsoft/DEMO/My Github/Generic.ActivityTimeline.PCF/**)"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Generic.ActivityTimeline.PCF",
+  "namespace": "Generic.ActivityTimeline",
+  "version": "1.0.0",
+  "description": "PowerApps Component Framework control for rendering a dual-view activity timeline with sentiment analysis.",
+  "controlManifest": "./ActivityTimelineControl/ControlManifest.Input.xml",
+  "build": {
+    "output": "./dist",
+    "entry": "./ActivityTimelineControl/index.ts",
+    "resources": [
+      {
+        "path": "./ActivityTimelineControl/css/ActivityTimelineControl.css",
+        "type": "css"
+      }
+    ]
+  },
+  "dependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0"
+  },
+  "scripts": {
+    "build": "pcf-scripts build",
+    "test": "pcf-scripts test",
+    "deploy": "pcf-scripts deploy"
+  }
+}

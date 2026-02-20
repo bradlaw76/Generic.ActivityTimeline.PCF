@@ -1,0 +1,75 @@
+/* ActivityTimelineControl.css */
+
+/* Styles for the Activity Timeline Control */
+
+/* General styles for the timeline container */
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Styles for the Journey view */
+.journey-view {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+/* Styles for individual timeline nodes */
+.timeline-node {
+    position: relative;
+    margin: 0 10px;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+}
+
+/* Styles for the List view */
+.list-view {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styles for individual list items */
+.list-item {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Styles for the Intelligence Panel */
+.intelligence-panel {
+    background-color: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+/* Styles for sentiment indicators */
+.sentiment-positive {
+    color: green;
+}
+
+.sentiment-neutral {
+    color: gray;
+}
+
+.sentiment-negative {
+    color: red;
+}
+
+/* Styles for filter controls */
+.filter-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* Styles for the search bar */
+.search-bar {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+}

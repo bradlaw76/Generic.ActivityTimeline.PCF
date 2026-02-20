@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+  <control namespace="Generic.ActivityTimeline" constructor="ActivityTimelineControl" version="1.0.0">
+    <properties>
+      <property name="recordId" display-name="Record ID" of-type="SingleLine.Text" required="true" />
+      <property name="entityName" display-name="Entity Name" of-type="SingleLine.Text" required="true" />
+      <property name="filterOptions" display-name="Filter Options" of-type="MultiSelect.OptionSet" required="false" />
+      <property name="searchQuery" display-name="Search Query" of-type="SingleLine.Text" required="false" />
+      <property name="zoomLevel" display-name="Zoom Level" of-type="SingleLine.Text" required="false" />
+      <property name="timeDisplay" display-name="Time Display" of-type="Boolean" required="false" />
+    </properties>
+    <events>
+      <event name="onDataLoaded" display-name="Data Loaded" />
+      <event name="onFilterChanged" display-name="Filter Changed" />
+      <event name="onSearch" display-name="Search" />
+    </events>
+    <resources>
+      <code>
+        <file path="index.ts" />
+        <file path="css/ActivityTimelineControl.css" />
+      </code>
+    </resources>
+  </control>
+</manifest>
