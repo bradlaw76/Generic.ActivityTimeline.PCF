@@ -2,7 +2,9 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
+    "moduleResolution": "node",
     "lib": ["es6", "dom"],
+    "jsx": "react",
     "outDir": "./dist",
     "rootDir": "./ActivityTimelineControl",
     "strict": true,
@@ -15,6 +17,8 @@
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/*.test.tsx"
   ]
 }
