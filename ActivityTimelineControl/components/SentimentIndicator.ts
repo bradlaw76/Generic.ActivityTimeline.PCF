@@ -1,32 +1,31 @@
 // SentimentIndicator.ts
 
-import React from 'react';
-
-interface SentimentIndicatorProps {
+export interface SentimentIndicatorViewModel {
+    sentimentClass: "sentiment-positive" | "sentiment-neutral" | "sentiment-negative";
+    sentimentLabel: "Positive" | "Neutral" | "Negative";
     score: number;
 }
 
-const SentimentIndicator: React.FC<SentimentIndicatorProps> = ({ score }) => {
-    let sentimentClass = '';
-    let sentimentLabel = '';
-
+export function getSentimentIndicator(score: number): SentimentIndicatorViewModel {
     if (score > 5) {
-        sentimentClass = 'sentiment-positive';
-        sentimentLabel = 'Positive';
-    } else if (score < 5) {
-        sentimentClass = 'sentiment-negative';
-        sentimentLabel = 'Negative';
-    } else {
-        sentimentClass = 'sentiment-neutral';
-        sentimentLabel = 'Neutral';
+        return {
+            sentimentClass: "sentiment-positive",
+            sentimentLabel: "Positive",
+            score
+        };
     }
 
-    return (
-        <div className={`sentiment-indicator ${sentimentClass}`}>
-            <span>{sentimentLabel}</span>
-            <span className="sentiment-score">{score}</span>
-        </div>
-    );
-};
+    if (score < 5) {
+        return {
+            sentimentClass: "sentiment-negative",
+            sentimentLabel: "Negative",
+            score
+        };
+    }
 
-export default SentimentIndicator;
+    return {
+        sentimentClass: "sentiment-neutral",
+        sentimentLabel: "Neutral",
+        score
+    };
+}

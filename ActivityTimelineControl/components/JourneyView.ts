@@ -1,35 +1,64 @@
-// JourneyView.ts
+import { ActivityNode } from "../models/ActivityNode";
 
-import { Component } from 'react';
-import { Activity } from '../models/Activity';
-import './JourneyView.css';
+export class JourneyView {
+    private readonly element: HTMLDivElement;
+    private activities: ActivityNode[] = [];
 
-interface JourneyViewProps {
-    activities: Activity[];
-}
+    constructor(_context: unknown) {
+        this.element = document.createElement("div");
+        this.element.className = "journey-view";
+        this.render();
+    }
 
-class JourneyView extends Component<JourneyViewProps> {
-    render() {
-        const { activities } = this.props;
+    public update(_context: unknown): void {
+        this.render();
+    }
 
-        return (
-            <div className="journey-view">
-                {activities.length === 0 ? (
-                    <div className="no-activities">No interactions found for this range</div>
-                ) : (
-                    <div className="journey-container">
-                        {activities.map((activity, index) => (
-                            <div key={index} className="activity-node">
-                                <span className="activity-type">{activity.type}</span>
-                                <span className="activity-subject">{activity.subject}</span>
-                                <span className="activity-timestamp">{activity.timestamp}</span>
-                            </div>
-                        ))}
-                    </div>
-                )}
-            </div>
-        );
+    public setActivities(activities: ActivityNode[]): void {
+        this.activities = activities;
+        this.render();
+    }
+
+    public getElement(): HTMLDivElement {
+        return this.element;
+    }
+
+    private render(): void {
+        this.element.innerHTML = "";
+
+        if (this.activities.length === 0) {
+            const empty = document.createElement("div");
+            empty.className = "no-activities";
+            empty.textContent = "No interactions found for this range";
+            this.element.appendChild(empty);
+            return;
+        }
+
+        const container = document.createElement("div");
+        container.className = "journey-container";
+
+        this.activities.forEach((activity) => {
+            const node = document.createElement("div");
+            node.className = "activity-node";
+
+            const type = document.createElement("span");
+            type.className = "activity-type";
+            type.textContent = activity.displayName;
+
+            const subject = document.createElement("span");
+            subject.className = "activity-subject";
+            subject.textContent = activity.title;
+
+            const timestamp = document.createElement("span");
+            timestamp.className = "activity-timestamp";
+            timestamp.textContent = activity.date.toISOString();
+
+            node.appendChild(type);
+            node.appendChild(subject);
+            node.appendChild(timestamp);
+            container.appendChild(node);
+        });
+
+        this.element.appendChild(container);
     }
 }
-
-export default JourneyView;

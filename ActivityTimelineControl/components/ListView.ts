@@ -1,44 +1,78 @@
 // ListView.ts
 // This file exports a class ListView that renders the list view of the activity timeline, providing a vertical feed of interactions.
 
-import { Activity } from "../models/Activity";
+import { ActivityNode } from "../models/ActivityNode";
 import { FilterState } from "../models/FilterState";
 
 export class ListView {
-    private activities: Activity[];
-    private filterState: FilterState;
+    private readonly element: HTMLDivElement;
+    private activities: ActivityNode[] = [];
+    private filterState: FilterState = {
+        activeTypes: [],
+        searchQuery: "",
+        dateRangeDays: 30,
+        zoomLevel: 1,
+        showTimeLabels: true,
+        activeTab: "list",
+        largeText: false
+    };
 
-    constructor(activities: Activity[], filterState: FilterState) {
+    constructor(_context: unknown) {
+        this.element = document.createElement("div");
+        this.element.className = "list-view";
+        this.render();
+    }
+
+    public update(_context: unknown): void {
+        this.render();
+    }
+
+    public getElement(): HTMLDivElement {
+        return this.element;
+    }
+
+    public setActivities(activities: ActivityNode[]): void {
         this.activities = activities;
+        this.render();
+    }
+
+    public setFilterState(filterState: FilterState): void {
         this.filterState = filterState;
+        this.render();
     }
 
     public render(): HTMLElement {
-        const listContainer = document.createElement('div');
-        listContainer.className = 'list-view';
+        this.element.innerHTML = "";
 
-        this.activities.forEach(activity => {
+        this.activities.forEach((activity) => {
             if (this.shouldDisplayActivity(activity)) {
                 const activityElement = this.createActivityElement(activity);
-                listContainer.appendChild(activityElement);
+                this.element.appendChild(activityElement);
             }
         });
 
-        return listContainer;
+        return this.element;
     }
 
-    private shouldDisplayActivity(activity: Activity): boolean {
-        // Implement filtering logic based on this.filterState
-        return true; // Placeholder for actual filtering logic
+    private shouldDisplayActivity(activity: ActivityNode): boolean {
+        const typeMatches = this.filterState.activeTypes.length === 0 ||
+            this.filterState.activeTypes.includes(activity.normalizedType);
+
+        const normalizedSearch = this.filterState.searchQuery.trim().toLowerCase();
+        const searchMatches = normalizedSearch.length === 0 ||
+            activity.title.toLowerCase().includes(normalizedSearch) ||
+            activity.description.toLowerCase().includes(normalizedSearch);
+
+        return typeMatches && searchMatches;
     }
 
-    private createActivityElement(activity: Activity): HTMLElement {
+    private createActivityElement(activity: ActivityNode): HTMLElement {
         const activityElement = document.createElement('div');
         activityElement.className = 'activity-item';
         activityElement.innerHTML = `
-            <div class="activity-type">${activity.type}</div>
-            <div class="activity-subject">${activity.subject}</div>
-            <div class="activity-timestamp">${activity.timestamp}</div>
+            <div class="activity-type">${activity.displayName}</div>
+            <div class="activity-subject">${activity.title}</div>
+            <div class="activity-timestamp">${activity.date.toISOString()}</div>
         `;
         return activityElement;
     }

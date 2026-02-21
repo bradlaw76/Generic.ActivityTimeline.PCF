@@ -2,20 +2,22 @@
 // This file exports a class SearchBar that allows users to input search queries to filter interactions in real-time.
 
 export class SearchBar {
-    private searchInput: HTMLInputElement;
-    private onSearch: (query: string) => void;
+    private readonly element: HTMLDivElement;
+    private readonly searchInput: HTMLInputElement;
+    private onSearch: (query: string) => void = () => {};
 
-    constructor(onSearch: (query: string) => void) {
-        this.onSearch = onSearch;
+    constructor(_context: unknown) {
+        this.element = document.createElement("div");
+        this.element.className = "search-bar";
+        this.searchInput = document.createElement("input");
         this.createSearchBar();
     }
 
     private createSearchBar(): void {
-        this.searchInput = document.createElement('input');
-        this.searchInput.type = 'text';
-        this.searchInput.placeholder = 'Search interactions...';
-        this.searchInput.addEventListener('input', this.handleInput.bind(this));
-        document.body.appendChild(this.searchInput); // Adjust as necessary for your layout
+        this.searchInput.type = "text";
+        this.searchInput.placeholder = "Search interactions...";
+        this.searchInput.addEventListener("input", this.handleInput.bind(this));
+        this.element.appendChild(this.searchInput);
     }
 
     private handleInput(event: Event): void {
@@ -25,5 +27,16 @@ export class SearchBar {
 
     public clear(): void {
         this.searchInput.value = '';
+    }
+
+    public update(_context: unknown): void {
+    }
+
+    public setOnSearch(onSearch: (query: string) => void): void {
+        this.onSearch = onSearch;
+    }
+
+    public getElement(): HTMLDivElement {
+        return this.element;
     }
 }

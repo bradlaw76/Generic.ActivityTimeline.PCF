@@ -1,3 +1,5 @@
+/// <reference types="powerapps-component-framework" />
+
 // ActivityTimelineControl/index.ts
 
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
@@ -9,17 +11,22 @@ import { SearchBar } from "./components/SearchBar";
 
 export class ActivityTimelineControl implements ComponentFramework.StandardControl<IInputs, IOutputs> {
     private container: HTMLDivElement;
-    private journeyView: JourneyView;
-    private listView: ListView;
-    private intelligencePanel: IntelligencePanel;
-    private filterControls: FilterControls;
-    private searchBar: SearchBar;
+    private journeyView!: JourneyView;
+    private listView!: ListView;
+    private intelligencePanel!: IntelligencePanel;
+    private filterControls!: FilterControls;
+    private searchBar!: SearchBar;
 
     constructor() {
         this.container = document.createElement("div");
     }
 
-    public init(context: ComponentFramework.Context<IInputs>): void {
+    public init(
+        context: ComponentFramework.Context<IInputs>,
+        _notifyOutputChanged: () => void,
+        _state: ComponentFramework.Dictionary,
+        container: HTMLDivElement
+    ): void {
         this.journeyView = new JourneyView(context);
         this.listView = new ListView(context);
         this.intelligencePanel = new IntelligencePanel(context);
@@ -31,6 +38,8 @@ export class ActivityTimelineControl implements ComponentFramework.StandardContr
         this.container.appendChild(this.intelligencePanel.getElement());
         this.container.appendChild(this.filterControls.getElement());
         this.container.appendChild(this.searchBar.getElement());
+
+        container.appendChild(this.container);
     }
 
     public updateView(context: ComponentFramework.Context<IInputs>): void {
@@ -47,9 +56,5 @@ export class ActivityTimelineControl implements ComponentFramework.StandardContr
 
     public destroy(): void {
         // Cleanup if necessary
-    }
-
-    public getElement(): HTMLDivElement {
-        return this.container;
     }
 }
