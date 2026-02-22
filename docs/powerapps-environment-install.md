@@ -41,12 +41,17 @@ In short:
 
 ## 1. Prerequisites
 
+**All users:**
 - Access to a Power Apps environment (example URL: `https://<org>.crm.dynamics.com`)
-- Permissions to customize tables/forms (or System Customizer/Admin)
-- Power Platform CLI (`pac`) installed
-- Node.js and npm installed
+- Permissions to customize tables/forms (System Customizer or System Administrator role)
 
-Quick checks:
+**Developers only:**
+- Power Platform CLI (`pac`) installed — [install guide](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction)
+- Node.js (v16+) and npm installed
+
+> **For Admins:** You do not need Node.js or `pac` CLI unless you are doing dev pushes yourself.
+
+Quick checks (developers):
 
 ```powershell
 node -v
