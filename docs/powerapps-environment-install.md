@@ -108,6 +108,17 @@ Example:
 pac pcf push --publisher-prefix contoso
 ```
 
+> **How to find your publisher prefix:**
+> 1. Go to [make.powerapps.com](https://make.powerapps.com)
+> 2. Select your environment
+> 3. Go to **Solutions** in the left nav
+> 4. Open your solution (or create one if none exists)
+> 5. Go to **Publisher** — the **Prefix** field is your publisher prefix
+>
+> Example: if your publisher prefix is `contoso`, run `pac pcf push --publisher-prefix contoso`
+>
+> **Note:** The prefix must match the publisher already registered in your environment. Using a mismatched prefix will cause an error.
+
 ## 5. Add control to a form in Maker Portal
 
 1. Go to `https://make.powerapps.com`
