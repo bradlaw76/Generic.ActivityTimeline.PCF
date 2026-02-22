@@ -142,6 +142,12 @@ pac pcf push --publisher-prefix contoso
 - Verify data behavior for your record context
 - If testing in harness first, remember blank `recordId`/`entityName` can show empty state
 
+> **For Developers:** Before pushing to an environment, test locally with the PCF test harness:
+> ```powershell
+> npm start
+> ```
+> This launches a browser at `http://localhost:8181` where you can interact with the control. Note that `recordId` and `entityName` will be empty in harness mode — the control will show an empty/loading state. This is expected.
+
 ## 7. Recommended production path
 
 For production rollout, avoid direct `pac pcf push` and deploy via solution lifecycle:
