@@ -59,7 +59,7 @@ npm -v
 pac help
 ```
 
-> Note: `pac --version` is not a valid command on this CLI build. Use `pac help` to confirm install.
+> **Note:** `pac --version` is not a valid command on this CLI build. Use `pac help` to confirm install.
 
 ## 2. Build the control
 
