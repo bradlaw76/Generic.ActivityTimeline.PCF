@@ -108,8 +108,10 @@ mode behavior in the PCF test harness and form host.
   filtered result set.
 - **FR-008**: The system MUST provide a manual sync action and loading feedback
   during refresh operations.
-- **FR-009**: The system MUST provide diagnostics visibility suitable for support
-  troubleshooting.
+- **FR-009**: The diagnostics panel MUST be toggleable and display at minimum:
+  record-context status, last sync timestamp, item count before filter, item
+  count after filter, and latest error summary; open/close behavior MUST work
+  in both journey and list views.
 - **FR-010**: The system MUST sanitize user-visible text and rendered rich
   content paths to prevent unsafe output.
 - **FR-011**: If record context is missing, the control MUST present a usable
@@ -119,6 +121,19 @@ mode behavior in the PCF test harness and form host.
   approval is documented by Product Owner sign-off in
   `specs/001-pcf-conversion/spec.md` change log and mirrored in
   `specs/001-pcf-conversion/plan.md`.
+- **FR-013**: Any public manifest input change MUST be explicitly documented in
+  a Manifest Input Changes table, including previous input, new input, reason,
+  backward-compatibility impact, and Product Owner approval reference.
+- **FR-014**: Export and navigation actions MUST use an explicit allowlist of
+  fields and MUST exclude hidden or sensitive attributes not required for user
+  workflows.
+
+### Manifest Input Changes
+
+- `recordId`: unchanged.
+- `entityName`: unchanged.
+- Optional additions MUST document default behavior and backward compatibility.
+- Any removal or rename MUST include Product Owner sign-off reference.
 
 ### Key Entities *(include if feature involves data)*
 

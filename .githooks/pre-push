@@ -1,0 +1,27 @@
+#!/bin/sh
+# Sync repo to OneDrive before git push.
+# Generated for Generic.ActivityTimeline.PCF
+
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
+if [ -z "$REPO_ROOT" ]; then
+  echo "[pre-push] Could not determine repo root; skipping OneDrive sync."
+  exit 0
+fi
+
+POWERSHELL_SCRIPT="$REPO_ROOT/scripts/Sync-OneDrive.ps1"
+if [ ! -f "$POWERSHELL_SCRIPT" ]; then
+  echo "[pre-push] Sync script not found: $POWERSHELL_SCRIPT"
+  exit 1
+fi
+
+echo "[pre-push] Syncing to OneDrive..."
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$POWERSHELL_SCRIPT"
+RESULT=$?
+
+if [ "$RESULT" -ne 0 ]; then
+  echo "[pre-push] OneDrive sync failed. Push aborted."
+  exit 1
+fi
+
+echo "[pre-push] OneDrive sync completed. Continuing push."
+exit 0

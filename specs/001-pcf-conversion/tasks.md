@@ -100,11 +100,14 @@
 ### Tests for User Story 3
 
 - [ ] T039 [P] [US3] Add diagnostics visibility behavior tests in `ActivityTimelineControl/components/DiagnosticConsole.test.tsx`
+- [ ] T039a [P] [US3] Extend diagnostics tests to assert required fields in `ActivityTimelineControl/components/DiagnosticConsole.test.tsx`
 
 ### Implementation for User Story 3
 
 - [ ] T040 [US3] Implement diagnostics console component in `ActivityTimelineControl/components/DiagnosticConsole.tsx`
 - [ ] T041 [US3] Wire diagnostics toggle, export action, and sync UX in `ActivityTimelineControl/components/ActivityTimeline.tsx`
+- [ ] T041a [US3] Enforce export field allowlist and hidden-field exclusion in `ActivityTimelineControl/components/ActivityTimeline.tsx`
+- [ ] T041b [P] [US3] Add export security regression test for excluded fields in `ActivityTimelineControl/components/ActivityTimeline.test.tsx`
 - [ ] T042 [US3] Ensure cloud-specific control behavior in `ActivityTimelineControl/components/Header.tsx`
 
 **Checkpoint**: US3 makes the control operationally supportable for rollout.
@@ -120,6 +123,9 @@
 - [ ] T045 Execute harness verification checklist in `specs/001-pcf-conversion/quickstart.md`
 - [ ] T045a Define performance validation dataset and procedure in `specs/001-pcf-conversion/quickstart.md`
 - [ ] T045b Capture and record p95 toggle/filter timings in `specs/001-pcf-conversion/research.md`
+- [ ] T045c Define SC-001 timed user-validation protocol in `specs/001-pcf-conversion/quickstart.md`
+- [ ] T045d Execute SC-001 timed validation and record evidence in `specs/001-pcf-conversion/research.md`
+- [ ] T045e Link SC-001 evidence summary in `specs/001-pcf-conversion/spec.md`
 - [ ] T046 Update migration decisions and parity notes in `specs/001-pcf-conversion/research.md`
 - [ ] T047 Record final acceptance updates in `specs/001-pcf-conversion/spec.md`
 

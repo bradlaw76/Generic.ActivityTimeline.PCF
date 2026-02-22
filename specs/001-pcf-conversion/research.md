@@ -37,3 +37,26 @@ Establish implementation decisions required to migrate the existing HTML timelin
   - Mitigation: Explicit sanitization utilities and test coverage.
 - Risk: Scope creep during parity migration.
   - Mitigation: Enforce constitution and spec acceptance criteria.
+
+## SC-001 and Security Verification Evidence
+
+### SC-001 Timed Validation Results
+| Participant | Role | Completion Time (s) | Pass (<30s) | Notes |
+|-------------|------|---------------------|-------------|-------|
+| P01 | Support | TBD | TBD | |
+| P02 | Account | TBD | TBD | |
+
+Summary:
+- Sample size: TBD
+- Pass rate: TBD
+- SC-001 status: TBD
+
+### Export Least-Privilege Verification
+Verification checklist:
+- Export includes only allowlisted fields required for user workflow.
+- Export excludes hidden or sensitive fields not required for workflow.
+- Export behavior is consistent for filtered and unfiltered datasets.
+
+Result:
+- Status: TBD
+- Evidence reference: TBD

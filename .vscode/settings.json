@@ -3,7 +3,9 @@
         "git checkout": true,
         "git -C \"d:\\Onedrive\\OneDrive": true,
         ".specify/scripts/bash/": true,
-        ".specify/scripts/powershell/": true
+        ".specify/scripts/powershell/": true,
+        "&": true,
+        "npx pcf-scripts": true
     },
     "chat.promptFilesRecommendations": {
         "speckit.constitution": true,

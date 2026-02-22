@@ -16,7 +16,7 @@ WebAPI for runtime data, and preserves styling tokens from the source UI.
 **Language/Version**: TypeScript 4.x, React 17  
 **Primary Dependencies**: `pcf-scripts` 1.x, `react`, `react-dom`, typings for React/Jest  
 **Storage**: Dataverse via PCF `context.webAPI` (no local persistent store)  
-**Testing**: `pcf-scripts test` (Jest), targeted unit tests for utility modules  
+**Testing**: `npm test` (Jest), targeted unit tests for utility modules  
 **Target Platform**: Microsoft Dataverse / Model-driven app host (Standard PCF control)  
 **Project Type**: Single project PCF control  
 **Performance Goals**: For datasets up to 500 timeline items, filter/search and Journey/List toggle updates complete within 1000 ms p95 in harness validation; avoid UI lock during sync  
