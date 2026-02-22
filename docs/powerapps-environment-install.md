@@ -2,7 +2,7 @@
 
 ## Who this guide is for
 
-This guide covers two audiences. Most sections apply to both.
+This guide is for first-time deployment to a Dataverse/Power Apps environment. It covers two audiences — most sections apply to both.
 
 - **Developers** — building, iterating, and pushing the control to a dev environment via `pac pcf push`
 - **Power Platform Admins** — deploying to test/production via managed solution import in Maker Portal
@@ -10,8 +10,6 @@ This guide covers two audiences. Most sections apply to both.
 > **For Admins:** You do not need Node.js, npm, or `pac` CLI for production deployments. Jump to [Section 7 — Recommended production path](#7-recommended-production-path) if a developer has already exported the managed solution for you.
 
 > **For Developers:** Follow every section in order. The Quick Start at the bottom is your fastest path once you've done this once.
-
-This guide is for first-time deployment to a Dataverse/Power Apps environment.
 
 ## Tooling method used in this project (exact)
 
