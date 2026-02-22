@@ -210,7 +210,7 @@ For production rollout, avoid direct `pac pcf push` and deploy via solution life
 
 ---
 
-## Quick Start (copy/paste exact sequence)
+## Quick Start — Developer (copy/paste exact sequence)
 
 Run this from repo root in PowerShell:
 
@@ -227,5 +227,23 @@ pac pcf push --publisher-prefix <yourPrefix>
 Then in Maker Portal:
 
 1. Add control to form
-2. Bind `recordId` and `entityName`
+2. Bind `recordId` and `entityName` to the record context
 3. Save + Publish
+
+---
+
+## Quick Start — Admin (production deployment via managed solution)
+
+You will need a `.zip` managed solution file exported by a developer.
+
+In Maker Portal:
+
+1. Go to [make.powerapps.com](https://make.powerapps.com) and select the target environment
+2. Go to **Solutions** → **Import solution**
+3. Upload the `.zip` managed solution file
+4. Follow the import wizard — accept defaults unless instructed otherwise
+5. After import completes, go to the target table's form
+6. Add the PCF control as a component
+7. Bind `recordId` and `entityName` to the record context
+8. Save + Publish
+9. Open a record and confirm the control loads correctly
