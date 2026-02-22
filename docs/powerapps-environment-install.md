@@ -128,8 +128,11 @@ pac pcf push --publisher-prefix contoso
 5. Select the target field (or component host location)
 6. Add component/control and choose this PCF control
 7. Bind inputs:
-   - `recordId`
-   - `entityName`
+   - `recordId` — the unique identifier of the record currently open (e.g., an Account or Contact ID). The control uses this to fetch related activity data.
+   - `entityName` — the logical name of the table (e.g., `account`, `contact`). The control uses this to scope its data queries to the correct entity type.
+
+> **For Admins:** Both fields are required. If either is unbound, the control will load but show no data. Use the **Static value** option only for testing — in production, bind to the form's record context.
+
 8. Save and publish
 
 ## 6. Validate installation
