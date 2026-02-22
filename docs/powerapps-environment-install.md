@@ -185,6 +185,29 @@ For production rollout, avoid direct `pac pcf push` and deploy via solution life
 - Confirm field/property bindings include `recordId` and `entityName`
 - Verify there is related data for that record
 
+### Control loads but shows data from wrong records
+
+- Verify the environment selected in Maker Portal matches the one used in `pac auth`
+- Check that `recordId` is bound to the form's record context, not a static value
+
+### Control not updating after a new push
+
+- Hard refresh the browser (`Ctrl+Shift+R`) — cached assets may be serving the old version
+- Clear browser cache if hard refresh does not resolve it
+- Confirm `pac pcf push` completed without errors before refreshing
+
+### `pac pcf push` fails with "No publisher found"
+
+- Your publisher prefix does not match any publisher registered in the target environment
+- Go to **Solutions → Publishers** in Maker Portal and confirm the prefix
+- Re-run with the exact prefix shown there
+
+### Managed solution import fails in test/production
+
+- Check if an older version of the same solution is already installed
+- Unmanaged solutions must be deleted before importing a managed version of the same solution
+- Confirm the solution version number was incremented before export
+
 ---
 
 ## Quick Start (copy/paste exact sequence)
