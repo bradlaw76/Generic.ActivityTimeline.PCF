@@ -86,6 +86,14 @@ If multiple profiles exist, select one:
 pac auth select --index 1
 ```
 
+> **How to find your environment URL:**
+> 1. Go to [make.powerapps.com](https://make.powerapps.com)
+> 2. Select your target environment from the top-right environment picker
+> 3. Go to **Settings** (gear icon) → **Session details**
+> 4. Copy the **Instance url** — this is your environment URL
+>
+> It will look like: `https://yourorg.crm.dynamics.com`
+
 ## 4. Push control to environment (dev/test)
 
 Use your solution publisher prefix:
